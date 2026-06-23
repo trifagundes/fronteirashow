@@ -6,6 +6,9 @@
     <meta name="theme-color" content="#ffffff">
     <title>Eventos Fronteira | Modo Catálogo</title>
 
+    <!-- Link para o Manifest do PWA -->
+    <link rel="manifest" href="manifest.json">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -489,5 +492,20 @@
     
     <!-- Event Details Bottom Sheet (SPA View) -->
     <section id="event-details-modal" class="fixed bottom-0 left-0 w-full h-[92vh] z-[60] bg-background-light dark:bg-background-dark rounded-t-3xl translate-y-full transition-transform duration-300 flex flex-col overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.3)]"></section>
+
+    <!-- Script para registrar o Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado com sucesso:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Falha ao registrar o Service Worker:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
