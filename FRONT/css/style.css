@@ -84,9 +84,10 @@ html, body {
    ============================================ */
 
 /* Bottom Navigation: empurra acima da barra de navegação do sistema */
-nav.fixed.bottom-0 {
+/* Comentado: estava deixando sobra na parte inferior, diferente do comportamento nativo */
+/* nav.fixed.bottom-0 {
     padding-bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
-}
+} */
 
 /* Headers fixos/sticky: empurra abaixo da status bar */
 header.sticky.top-0,
