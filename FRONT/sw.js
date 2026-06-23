@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fronteiraplus-cache-v3';
+const CACHE_NAME = 'fronteiraplus-cache-20260623-1709';
 
 // Apenas recursos locais (sem restrição de CORS)
 const URLS_TO_CACHE = [
@@ -70,4 +70,11 @@ self.addEventListener('activate', event => {
             );
         })
     );
+});
+
+// Responde à página com a versão atual do cache quando solicitado
+self.addEventListener('message', event => {
+    if (event.data && event.data.type === 'GET_CACHE_VERSION') {
+        event.source.postMessage({ type: 'CACHE_VERSION', version: CACHE_NAME });
+    }
 });

@@ -70,6 +70,10 @@
                     class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full flex items-center gap-1 font-bold hover:bg-slate-300 transition-colors">
                     <i class="ph-bold ph-list"></i> Voltar ao Feed
                 </a>
+                <button id="btn-check-version" title="Verificar versão instalada"
+                    class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                    <i class="ph ph-info text-xl"></i>
+                </button>
                 <button id="theme-toggle"
                     class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                     <i class="ph ph-moon text-xl dark:hidden"></i>
@@ -615,6 +619,46 @@
                     });
             });
         }
+    </script>
+
+    <!-- Script: Verificar versão do cache instalado -->
+    <script>
+        document.getElementById('btn-check-version').addEventListener('click', async () => {
+            const toastContainer = document.getElementById('toast-container');
+
+            function showVersionToast(msg, isError = false) {
+                const toast = document.createElement('div');
+                toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl text-sm font-medium animate-fade-in-up ${
+                    isError
+                        ? 'bg-red-500 text-white'
+                        : 'bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900'
+                }`;
+                toast.innerHTML = `<i class="ph-fill ph-${ isError ? 'warning' : 'info'} text-lg shrink-0"></i><span>${msg}</span>`;
+                toastContainer.appendChild(toast);
+                setTimeout(() => toast.remove(), 5000);
+            }
+
+            if (!navigator.serviceWorker || !navigator.serviceWorker.controller) {
+                showVersionToast('⚠️ Nenhum SW ativo. Recarregue a página.', true);
+                return;
+            }
+
+            // Escuta a resposta do SW
+            const timeout = setTimeout(() => {
+                showVersionToast('⚠️ SW não respondeu. Tente recarregar.', true);
+            }, 3000);
+
+            navigator.serviceWorker.addEventListener('message', function handler(event) {
+                if (event.data && event.data.type === 'CACHE_VERSION') {
+                    clearTimeout(timeout);
+                    navigator.serviceWorker.removeEventListener('message', handler);
+                    showVersionToast('📦 Cache: ' + event.data.version);
+                }
+            });
+
+            // Envia a solicitação ao SW
+            navigator.serviceWorker.controller.postMessage({ type: 'GET_CACHE_VERSION' });
+        });
     </script>
 </body>
 
