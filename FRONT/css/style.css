@@ -90,11 +90,12 @@ html, body {
 } */
 
 /* Headers fixos/sticky: empurra abaixo da status bar */
-header.sticky.top-0,
+/* Comentado: estava criando sobra no topo atrás do relógio/câmera, diferente do comportamento nativo */
+/* header.sticky.top-0,
 header.fixed.top-0,
 div.fixed.top-0 {
     padding-top: calc(env(safe-area-inset-top) + 1rem);
-}
+} */
 
 /* Toast container: acima do nav + safe area */
 #toast-container {
