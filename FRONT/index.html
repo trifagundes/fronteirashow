@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+    <title>Eventos Fronteira | Livramento & Rivera</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for Development) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        surface: {
+                            light: '#ffffff',
+                            dark: '#1e293b',
+                        },
+                        background: {
+                            light: '#f8fafc',
+                            dark: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+                        'shimmer': 'shimmer 3s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shimmer: {
+                            '0%': { transform: 'translateX(-150%) skewX(-15deg)' },
+                            '100%': { transform: 'translateX(300%) skewX(-15deg)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300 min-h-screen pb-20">
+    
+    <!-- Header/App Bar -->
+    <header class="sticky top-0 z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-4 flex justify-between items-center transition-colors duration-300">
+        <div>
+            <h1 class="text-xl font-bold bg-gradient-to-r from-primary-500 to-teal-400 bg-clip-text text-transparent">
+                Fronteira Events
+            </h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Livramento & Rivera</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="netflix.html" class="text-[10px] bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-3 py-1.5 rounded-full flex items-center gap-1 font-bold hover:bg-red-200 transition-colors">
+                <i class="ph-bold ph-monitor-play"></i> Catálogo
+            </a>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+                <i class="ph ph-moon text-xl dark:hidden"></i>
+                <i class="ph ph-sun text-xl hidden dark:block"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-4" id="app-main">
+        
+        <!-- Destaques (Carrossel Horizontal) -->
+        <section class="mb-6 -mx-4 px-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory flex gap-4 pb-2" id="featured-events-container">
+            <!-- Skeletons for Featured -->
+            <div class="snap-center shrink-0 w-72 h-40 animate-pulse bg-surface-light dark:bg-surface-dark rounded-2xl border border-slate-100 dark:border-slate-800"></div>
+            <div class="snap-center shrink-0 w-72 h-40 animate-pulse bg-surface-light dark:bg-surface-dark rounded-2xl border border-slate-100 dark:border-slate-800"></div>
+        </section>
+
+        <!-- Filters/Tags -->
+        <section class="mb-6 overflow-x-auto hide-scrollbar">
+            <div class="flex gap-2 pb-2">
+                <button class="px-4 py-1.5 rounded-full bg-primary-500 text-white text-sm font-medium shadow-md shadow-primary-500/30 whitespace-nowrap">Todos</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-sm font-medium whitespace-nowrap hover:border-primary-500 transition-colors">Santana do Livramento</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-sm font-medium whitespace-nowrap hover:border-primary-500 transition-colors">Rivera</button>
+                <button class="px-4 py-1.5 rounded-full bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 text-sm font-medium whitespace-nowrap hover:border-primary-500 transition-colors">Música</button>
+            </div>
+        </section>
+
+        <!-- Events Feed -->
+        <section class="flex flex-col gap-8">
+            <div id="events-container" class="flex flex-col gap-8">
+                <!-- Skeletons for Loading State -->
+                <div class="animate-pulse bg-surface-light dark:bg-surface-dark rounded-2xl h-48 w-full border border-slate-100 dark:border-slate-800"></div>
+                <div class="animate-pulse bg-surface-light dark:bg-surface-dark rounded-2xl h-48 w-full border border-slate-100 dark:border-slate-800"></div>
+            </div>
+
+            <!-- Sentinela de Rolagem Infinita -->
+            <div id="scroll-sentinel" class="h-16 mt-4 flex items-center justify-center hidden">
+                <i class="ph ph-spinner animate-spin text-3xl text-primary-500"></i>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Tarja Fixa Inteligente (Smart Banner) -->
+    <div id="smart-sticky-ad" class="fixed bottom-20 left-4 right-4 z-40 transition-all duration-500 translate-y-0 opacity-100">
+        <div class="bg-slate-900 dark:bg-slate-100 rounded-2xl shadow-xl shadow-black/20 dark:shadow-white/5 p-3 pr-10 flex items-center justify-between border border-slate-700/50 dark:border-slate-300 cursor-pointer group relative">
+            
+            <!-- Botão Fechar -->
+            <button id="close-sticky-ad" class="absolute top-1 right-1 w-6 h-6 flex items-center justify-center rounded-full text-slate-400 hover:text-white dark:hover:text-slate-900 hover:bg-white/10 dark:hover:bg-black/10 transition-colors z-50">
+                <i class="ph-bold ph-x text-[10px]"></i>
+            </button>
+
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 overflow-hidden border border-slate-200">
+                    <img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.uber.com&size=128" alt="Uber" class="w-full h-full object-cover p-1">
+                </div>
+                <div>
+                    <h4 class="text-white dark:text-slate-900 text-sm font-bold leading-none mb-1">Táxi Rápido Fronteira</h4>
+                    <span class="text-slate-400 dark:text-slate-500 text-[10px] block leading-tight">Volte em segurança para casa.</span>
+                </div>
+            </div>
+            <button class="bg-green-500 hover:bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:scale-105 shrink-0 shadow-md">
+                <i class="ph-bold ph-whatsapp-logo"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante (FAB) do Táxi - Oculto por padrão -->
+    <button id="fab-taxi" class="fixed bottom-20 right-4 z-40 w-12 h-12 bg-slate-900 dark:bg-slate-100 rounded-full shadow-xl shadow-black/30 border border-slate-700/50 dark:border-slate-300 flex items-center justify-center translate-y-20 opacity-0 pointer-events-none transition-all duration-500">
+        <img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.uber.com&size=128" alt="Uber" class="w-6 h-6 object-cover bg-white rounded-full p-0.5">
+    </button>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-50 transition-colors duration-300 pb-safe">
+        <a href="#" class="flex flex-col items-center text-primary-500">
+            <i class="ph-fill ph-house text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium">Início</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+            <i class="ph ph-magnifying-glass text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium">Buscar</span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors relative">
+            <i class="ph ph-heart text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium">Salvos</span>
+            <span class="absolute top-0 right-0 -mr-2 w-2 h-2 bg-red-500 rounded-full"></span>
+        </a>
+        <a href="#" class="flex flex-col items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+            <i class="ph ph-user text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium">Perfil</span>
+        </a>
+    </nav>
+
+    <!-- App Scripts (ES6 Modules) -->
+    <script type="module" src="./js/app.js"></script>
+
+    <!-- Event Details Modal (SPA View) -->
+    <section id="event-details-modal" class="fixed inset-0 z-[60] bg-background-light dark:bg-background-dark translate-x-full transition-transform duration-300 flex flex-col overflow-hidden">
+        <!-- Content injected via JS -->
+    </section>
+</body>
+</html>

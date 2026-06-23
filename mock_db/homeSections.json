@@ -1,0 +1,89 @@
+[
+    {
+      "type": "explore_pills",
+      "id": "sec-1",
+      "order": 1
+    },
+    {
+      "type": "event_bento_box",
+      "title": "Alta Demanda",
+      "filter": "mixed",
+      "limit": 3,
+      "adZone": "native_feed",
+      "insertAdAt": 2,
+      "id": "sec-2",
+      "order": 2
+    },
+    {
+      "type": "event_featured_single",
+      "title": "Destaque do Fim de Semana",
+      "filter": "trending",
+      "id": "sec-3",
+      "order": 3
+    },
+    {
+      "type": "event_landscape_row",
+      "title": "Grandes Shows e Festivais",
+      "filter": "tags:Festa",
+      "insertAdAt": 1,
+      "adZone": "native_feed",
+      "id": "sec-4",
+      "order": 4
+    },
+    {
+      "type": "native_ad",
+      "adZone": "native_feed",
+      "id": "sec-5",
+      "order": 5
+    },
+    {
+      "type": "event_row",
+      "title": "100% Gratuito",
+      "adZone": "native_feed",
+      "insertAdAt": 1,
+      "filter": "free",
+      "id": "sec-6",
+      "order": 6
+    },
+    {
+      "type": "utility_carousel",
+      "id": "sec-7",
+      "order": 7
+    },
+    {
+      "type": "producer_row",
+      "title": "Produtores em Alta",
+      "limit": 8,
+      "id": "sec-8",
+      "order": 8
+    },
+    {
+      "type": "event_list",
+      "title": "Próximos de Você",
+      "filter": "mixed",
+      "limit": 4,
+      "insertAdAt": 2,
+      "adZone": "native_feed",
+      "id": "sec-9",
+      "order": 9
+    },
+    {
+      "type": "event_grid",
+      "title": "Mês da Gastronomia e Cultura",
+      "filter": "tags:Cultural",
+      "limit": 4,
+      "insertAdAt": 3,
+      "adZone": "native_feed",
+      "id": "sec-10",
+      "order": 10
+    },
+    {
+      "type": "event_row",
+      "title": "Para Curtir a Noite",
+      "filter": "mixed",
+      "insertAdAt": 2,
+      "adZone": "native_feed",
+      "id": "sec-11",
+      "order": 11
+    }
+]

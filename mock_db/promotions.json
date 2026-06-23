@@ -1,0 +1,5 @@
+[
+    { "id": 1, "producerId": "prod-001", "title": "Sorteio VIP Open Bar", "type": "giveaway", "status": "active", "desc": "Sorteio de 1 VIP com acompanhante + R$100 em consumação.", "starts": "2026-06-01", "expires": "2026-12-31", "banner": "https://images.unsplash.com/photo-1574158622591-bc317eb15694?auto=format&fit=crop&q=80&w=800" },
+    { "id": 2, "producerId": "prod-001", "title": "Copão em Dobro", "type": "combo", "status": "expired", "desc": "Compre um Copão de Vodka e ganhe outro até a meia-noite.", "starts": "2026-01-10", "expires": "2026-06-01", "banner": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800" },
+    { "id": 3, "producerId": "prod-002", "title": "50% OFF no Ingresso Feminino", "type": "discount", "status": "active", "desc": "Mostre o app na portaria e pague meia entrada a noite toda.", "starts": "2026-06-20", "expires": "2026-10-15", "banner": "https://images.unsplash.com/photo-1545128485-c400e7702796?auto=format&fit=crop&q=80&w=800", "limit": 50, "claimed": 48, "limitOrange": 20, "limitRed": 5 }
+]

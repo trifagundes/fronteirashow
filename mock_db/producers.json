@@ -1,0 +1,137 @@
+[
+    {
+      "id": "prod-001",
+      "name": "Prefeitura de Livramento",
+      "logoUrl": "https://ui-avatars.com/api/?name=PL&background=0ea5e9&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 10386,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/prefeituradelivramento",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "vip",
+      "coverUrl": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-002",
+      "name": "Associação de Vinhos",
+      "logoUrl": "https://ui-avatars.com/api/?name=AV&background=8b5cf6&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 4241,
+      "isVerified": true,
+      "socialLinks": {
+        "instagram": "https://instagram.com/associaçãodevinhos",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "vip",
+      "coverUrl": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-003",
+      "name": "Club Uruguay",
+      "logoUrl": "https://ui-avatars.com/api/?name=CU&background=f43f5e&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 3988,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/cluburuguay",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "premium",
+      "coverUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-004",
+      "name": "Casa de Cultura",
+      "logoUrl": "https://ui-avatars.com/api/?name=CC&background=10b981&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 9299,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/casadecultura",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "premium",
+      "coverUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-005",
+      "name": "Movimento Sem Terra",
+      "logoUrl": "https://www.infoescola.com/wp-content/uploads/2007/08/MST.png",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 8699,
+      "isVerified": true,
+      "socialLinks": {
+        "instagram": "https://instagram.com/movimentosemterra",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "premium",
+      "coverUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-006",
+      "name": "Fronteira Comedy",
+      "logoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRnByKpWayRNJZ8J5DFEvNMj8zOO9fRcXg0w&s",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 2436,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/fronteiracomedy",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-007",
+      "name": "Padel Club",
+      "logoUrl": "https://ui-avatars.com/api/?name=PC&background=14b8a6&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 3326,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/padelclub",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-008",
+      "name": "Samba na Fronteira",
+      "logoUrl": "https://i1.sndcdn.com/avatars-gUAK0VG3z5hkkGrx-hP3ixQ-t200x200.jpg",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 4429,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/sambanafronteira",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-009",
+      "name": "Escola de Artes",
+      "logoUrl": "https://ui-avatars.com/api/?name=EA&background=8b5cf6&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 3462,
+      "isVerified": true,
+      "socialLinks": {
+        "instagram": "https://instagram.com/escoladeartes",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-0010",
+      "name": "Clube de Carros",
+      "logoUrl": "https://ui-avatars.com/api/?name=CC&background=64748b&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 6416,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/clubedecarros",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    }
+]

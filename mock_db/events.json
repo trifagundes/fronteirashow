@@ -1,0 +1,188 @@
+[
+    {
+        "id": "evt-001",
+        "title": "Festival de Fronteira",
+        "description": "Uma celebração da cultura gaúcha e uruguaia com música ao vivo, danças típicas e gastronomia local.",
+        "date": "2026-07-10T18:00:00",
+        "location": "Parque Internacional, Livramento/Rivera",
+        "city": "Fronteira",
+        "category": "Cultura",
+        "imageUrl": "https://www.rbsdirect.com.br/filestore/8/4/1/2/4/9/1_d572f552fbd0f71/1942148_f9eace06fbce0b0.jpg?w=700",
+        "price": "Gratuito",
+        "featured": true,
+        "promotion": {
+            "label": "",
+            "description": "Apresente o app na entrada e ganhe 1 Chope Pilsen artesanal de boas-vindas por nossa conta!",
+            "code": "SAMBA-FRONTEIRA-26"
+        },
+        "likesCount": 429,
+        "tags": [
+            "Cultura",
+            "Cultural",
+            "Festa"
+        ],
+        "promoterId": "prod-001"
+    },
+    {
+        "id": "evt-002",
+        "title": "Feira de Vinhos de Altitude",
+        "description": "Degustação dos melhores vinhos da campanha gaúcha. Presença das principais vinícolas de Santana do Livramento.",
+        "date": "2026-07-15T10:00:00",
+        "location": "Largo da Prefeitura, Santana do Livramento",
+        "city": "Livramento",
+        "category": "Gastronomia",
+        "imageUrl": "https://img.magnific.com/fotos-premium/um-copo-e-uma-garrafa-de-vinho-num-cenario-intimo_221812-199.jpg?w=1480",
+        "price": "R$ 50,00",
+        "likesCount": 130,
+        "tags": [
+            "Gastronomia",
+            "Cultural"
+        ],
+        "promoterId": "prod-002"
+    },
+    {
+        "id": "evt-003",
+        "title": "Noche de Cumbia y Reggaeton",
+        "description": "Festa no centro de Rivera com os melhores DJs da fronteira tocando os hits do momento.",
+        "date": "2026-07-18T23:30:00",
+        "location": "Club Uruguay, Rivera",
+        "city": "Rivera",
+        "category": "Festa",
+        "imageUrl": "https://ladiosa.s3.us-west-2.amazonaws.com/events/flyers/db7b3aea-a9bd-4a7c-ae58-32d6b0c823ec.jpg",
+        "price": "$U 400",
+        "featured": true,
+        "promotion": {
+            "label": "",
+            "description": "Apresente o app na entrada e ganhe 1 Chope Pilsen artesanal de boas-vindas por nossa conta!",
+            "code": "SAMBA-FRONTEIRA-26"
+        },
+        "likesCount": 431,
+        "tags": [
+            "Festa"
+        ],
+        "promoterId": "prod-003"
+    },
+    {
+        "id": "evt-004",
+        "title": "Exposição de Artes Plásticas",
+        "description": "Obras de artistas locais retratando a vida na fronteira da paz.",
+        "date": "2026-07-20T14:00:00",
+        "location": "Casa de Cultura, Santana do Livramento",
+        "city": "Livramento",
+        "category": "Artes",
+        "imageUrl": "https://memorial.camarapoa.rs.gov.br/wp-content/uploads/Loguinho-21-Sal%C3%A3o-800x921.png",
+        "price": "Gratuito",
+        "likesCount": 132,
+        "tags": [
+            "Artes"
+        ],
+        "promoterId": "prod-004"
+    },
+    {
+        "id": "evt-005",
+        "title": "Feira do Produtor Rural",
+        "description": "Venha comprar produtos orgânicos, queijos coloniais, mel e artesanato diretamente dos produtores da nossa região.",
+        "date": "2026-07-22T08:00:00",
+        "location": "Praça General Osório, Santana do Livramento",
+        "city": "Livramento",
+        "category": "Feira",
+        "imageUrl": "https://s2.glbimg.com/zdMX42gjl1huKdfSoNCTyAtqkpQ=/780x440/e.glbimg.com/og/ed/f/original/2015/10/22/feira_mst.jpg",
+        "price": "Gratuito",
+        "promotion": {
+            "label": "",
+            "description": "Apresente o app na entrada e ganhe 1 Chope Pilsen artesanal de boas-vindas por nossa conta!",
+            "code": "SAMBA-FRONTEIRA-26"
+        },
+        "likesCount": 133,
+        "tags": [
+            "Feira"
+        ],
+        "promoterId": "prod-005"
+    },
+    {
+        "id": "evt-006",
+        "title": "Show de Stand-up Comedy",
+        "description": "Os melhores comediantes do Rio Grande do Sul e Uruguai em uma noite de muitas risadas na fronteira.",
+        "date": "2026-07-25T21:00:00",
+        "location": "Teatro Municipal, Rivera",
+        "city": "Rivera",
+        "category": "Teatro",
+        "imageUrl": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/stand-up-comedy-flyer-poster-template-design-7482fe123e349bbcc584d1e8126c4c2d_screen.jpg?ts=1650940828",
+        "price": "R$ 40,00",
+        "likesCount": 134,
+        "tags": [
+            "Teatro"
+        ],
+        "promoterId": "prod-006"
+    },
+    {
+        "id": "evt-007",
+        "title": "Torneio de Padel Fronteiriço",
+        "description": "Campeonato amador e profissional de Padel, reunindo os melhores atletas de Livramento e Rivera.",
+        "date": "2026-08-01T09:00:00",
+        "location": "Padel Club, Santana do Livramento",
+        "city": "Livramento",
+        "category": "Esportes",
+        "imageUrl": "https://clubecuritibano.com.br/storage/upload/news/669fd2829462a.jpg",
+        "price": "R$ 60,00",
+        "likesCount": 135,
+        "tags": [
+            "Esportes"
+        ],
+        "promoterId": "prod-007"
+    },
+    {
+        "id": "evt-008",
+        "title": "Roda de Samba e Cerveja Artesanal",
+        "description": "Tarde com muito samba raiz, cervejas artesanais locais e food trucks.",
+        "date": "2026-08-05T15:00:00",
+        "location": "Plaza Internacional",
+        "city": "Fronteira",
+        "category": "Música",
+        "imageUrl": "https://template.canva.com/EAGUey4zwns/2/0/450w-188seaSX3jM.jpg",
+        "price": "$U 150",
+        "promotion": {
+            "label": "1 Chope Grátis",
+            "description": "Apresente o app na entrada e ganhe 1 Chope Pilsen artesanal de boas-vindas por nossa conta!",
+            "code": "SAMBA-FRONTEIRA-26"
+        },
+        "likesCount": 336,
+        "tags": [
+            "Música"
+        ],
+        "promoterId": "prod-008"
+    },
+    {
+        "id": "evt-009",
+        "title": "Workshop de Fotografia com Smartphone",
+        "description": "Aprenda a tirar fotos profissionais usando apenas o seu celular. Técnicas de iluminação, enquadramento e edição.",
+        "date": "2026-08-10T19:00:00",
+        "location": "Espaço Coworking, Rivera",
+        "city": "Rivera",
+        "category": "Educação",
+        "imageUrl": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/photography-flyer-design-template-1a03d45dd2f52e3f126c558e4cf444da_screen.jpg?ts=1698364963",
+        "price": "R$ 100,00",
+        "featured": true,
+        "likesCount": 437,
+        "tags": [
+            "Educação"
+        ],
+        "promoterId": "prod-009"
+    },
+    {
+        "id": "evt-010",
+        "title": "Encontro Clássicos da Fronteira (Carros Antigos)",
+        "description": "Exposição de carros antigos, clássicos e customizados de colecionadores do Brasil e Uruguai.",
+        "date": "2026-08-15T10:00:00",
+        "location": "Parque Batuva, Santana do Livramento",
+        "city": "Livramento",
+        "category": "Exposição",
+        "imageUrl": "https://clubenavaldf.com.br/wp-content/uploads/2024/05/22o-Encontro-de-Carros-Antigos-do-CNB-Foto-Levi-42-1030x579.jpg",
+        "price": "Gratuito",
+        "likesCount": 159,
+        "tags": [
+            "Exposição"
+        ],
+        "promoterId": "prod-0010"
+    }
+]

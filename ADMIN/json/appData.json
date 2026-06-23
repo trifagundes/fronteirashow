@@ -1,0 +1,407 @@
+{
+  "settings": {
+    "minFavoritesToSearch": 5,
+    "favoritesAdId": "campanha_funeraria",
+    "favoritesAdPosition": 0
+  },
+  "userProfile": {
+    "name": "Matheus Silva",
+    "email": "matheus.silva@email.com",
+    "avatarUrl": "https://ui-avatars.com/api/?name=Matheus+Silva&background=0D8ABC&color=fff&size=128",
+    "tickets": [
+      {
+        "orderId": "A1B2C3D4",
+        "quantity": 2,
+        "eventId": 1
+      },
+      {
+        "orderId": "E5F6G7H8",
+        "quantity": 1,
+        "eventId": 4
+      }
+    ]
+  },
+  "ads": {
+    "campanha_bebidas": {
+      "status": "active",
+      "zone": "native_feed",
+      "advertiser": "Jão Delivery",
+      "logo": "https://jao.delivery/assets/jao-logo-0OeKhf67.png",
+      "image": "https://njmhoajwmigjbirzjuox.supabase.co/storage/v1/render/image/public/blog-media/7ee8b291-e3f6-42be-93c4-ddb3826dd690/1781274749704-c48st6.png?width=900&quality=55&resize=contain",
+      "title": "O seu Esquenta Garantido!",
+      "description": "Combo Gin + Energético com 20% OFF para quem for nas festas de hoje. Entregamos gelado em 15 minutos!",
+      "cta": "Pedir agora"
+    },
+    "campanha_funeraria": {
+      "status": "active",
+      "zone": "native_feed",
+      "advertiser": "",
+      "logo": "",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkWRKaAB_z1ch3L-pWQ8L-mPHnJwYLB9kHYJXiqVFON-UPT18LsmjMNgEwhi72A6PHdg3rWamgRJeJBtnYOombBYxFJWlBxxP7Veq1fgIGgLsWAHt_LTqp1A7VfbxwjUMQH7GnzeQf0uAN0QFoBYY6j2Qg85RXGIeVjjJ6RAo18LHVovzTNWW-HPEuvcI/s1280/725616329_27262940473364593_8866066679993551776_n.jpg",
+      "title": "",
+      "description": "",
+      "cta": "Manda vir"
+    },
+    "campanha_ingresso": {
+      "status": "active",
+      "zone": "native_feed",
+      "advertiser": "Ingresso Rápido",
+      "logo": "https://ui-avatars.com/api/?name=IR&background=ec4899&color=fff&bold=true",
+      "image": "https://picsum.photos/seed/ad_ticket/600/300",
+      "title": "Evite Filas!",
+      "description": "Compre o seu ingresso antecipado pelo nosso app e garanta a entrada VIP em todos os eventos parceiros.",
+      "cta": "Comprar VIP"
+    },
+    "service_taxi": {
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.99app.com&size=128",
+      "title": "99 Táxi",
+      "description": "Volte em segurança",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    },
+    "service_hotel": {
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.ibis.com&size=128",
+      "title": "Hotel Ibis",
+      "description": "Desconto no pernoite",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    },
+    "service_barber": {
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.gillette.com&size=128",
+      "title": "Gillette Barber",
+      "description": "Corte de última hora",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    },
+    "service_pizza": {
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.dominos.com.br&size=128",
+      "title": "Domino's Pizza",
+      "description": "Bateu a fome pós festa",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    }
+  },
+  "trendingSearches": [
+    "Festa Universitária",
+    "Stand-up Comedy",
+    "Open Bar",
+    "Eletrônica",
+    "Samba e Pagode",
+    "Gratuitos"
+  ],
+  "mockCategories": [
+    {
+      "name": "Sertanejo",
+      "emoji": "🤠",
+      "color": "#f59e0b"
+    },
+    {
+      "name": "Rock",
+      "emoji": "🎸",
+      "color": "#10b981"
+    },
+    {
+      "name": "Eletrônica",
+      "emoji": "🎧",
+      "color": "#3b82f6"
+    },
+    {
+      "name": "Teatro",
+      "emoji": "🎭",
+      "color": "#ec4899"
+    },
+    {
+      "name": "Esportes",
+      "emoji": "🚴",
+      "color": "#06b6d4"
+    },
+    {
+      "name": "Vinhos",
+      "emoji": "🍷",
+      "color": "#8b5cf6"
+    }
+  ],
+  "allCategoriesForGrid": [
+    {
+      "name": "Circuito Skol Beats",
+      "image": "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=400&h=300&fit=crop",
+      "isBranded": true
+    },
+    {
+      "name": "Sertanejo",
+      "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Rock",
+      "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Eletrônica",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Teatro",
+      "image": "https://images.unsplash.com/photo-1507676184212-d0330a15183c?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Esportes",
+      "image": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Vinhos",
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Heineken Village",
+      "image": "https://images.unsplash.com/photo-1575037614876-c3853d40f81e?w=400&h=300&fit=crop",
+      "isBranded": true
+    },
+    {
+      "name": "Gastronomia",
+      "image": "https://images.unsplash.com/photo-1414235077428-33898869228e?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Ação Social",
+      "image": "https://images.unsplash.com/photo-1593113580532-601e3b092a95?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Stand-up Comedy",
+      "image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Retrô Anos 80",
+      "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Esportes Radicais",
+      "image": "https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Cultura Local",
+      "image": "https://images.unsplash.com/photo-1533222481259-ce20eda1e20b?w=400&h=300&fit=crop"
+    },
+    {
+      "name": "Festivais",
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop"
+    }
+  ],
+  "stickyAd": {
+    "advertiser": "Táxi Rápido Fronteira",
+    "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.uber.com&size=128",
+    "description": "Volte em segurança para casa.",
+    "ctaIcon": "ph-whatsapp-logo",
+    "ctaColor": "bg-green-500 hover:bg-green-600"
+  },
+  "homeSections": [
+    {
+      "type": "explore_pills"
+    },
+    {
+      "type": "event_bento_box",
+      "title": "Alta Demanda",
+      "filter": "mixed",
+      "limit": 3,
+      "adZone": "native_feed",
+      "insertAdAt": 2
+    },
+    {
+      "type": "event_featured_single",
+      "title": "Destaque do Fim de Semana",
+      "filter": "trending"
+    },
+    {
+      "type": "event_landscape_row",
+      "title": "Grandes Shows e Festivais",
+      "filter": "tags:Festa",
+      "insertAdAt": 1,
+      "adZone": "native_feed"
+    },
+    {
+      "type": "native_ad",
+      "adZone": "native_feed"
+    },
+    {
+      "type": "event_row",
+      "title": "100% Gratuito",
+      "adZone": "native_feed",
+      "insertAdAt": 1,
+      "filter": "free"
+    },
+    {
+      "type": "utility_carousel"
+    },
+    {
+      "type": "producer_row",
+      "title": "Produtores em Alta",
+      "limit": 8
+    },
+    {
+      "type": "event_list",
+      "title": "Próximos de Você",
+      "filter": "mixed",
+      "limit": 4,
+      "insertAdAt": 2,
+      "adZone": "native_feed"
+    },
+    {
+      "type": "event_grid",
+      "title": "Mês da Gastronomia e Cultura",
+      "filter": "tags:Cultural",
+      "limit": 4,
+      "insertAdAt": 3,
+      "adZone": "native_feed"
+    },
+    {
+      "type": "event_row",
+      "title": "Para Curtir a Noite",
+      "filter": "mixed",
+      "insertAdAt": 2,
+      "adZone": "native_feed"
+    }
+  ],
+  "producers": [
+    {
+      "id": "prod-001",
+      "name": "Prefeitura de Livramento",
+      "logoUrl": "https://ui-avatars.com/api/?name=PL&background=0ea5e9&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 10386,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/prefeituradelivramento",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "vip",
+      "coverUrl": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-002",
+      "name": "Associação de Vinhos",
+      "logoUrl": "https://ui-avatars.com/api/?name=AV&background=8b5cf6&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 4241,
+      "isVerified": true,
+      "socialLinks": {
+        "instagram": "https://instagram.com/associaçãodevinhos",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "vip",
+      "coverUrl": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-003",
+      "name": "Club Uruguay",
+      "logoUrl": "https://ui-avatars.com/api/?name=CU&background=f43f5e&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 3988,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/cluburuguay",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "premium",
+      "coverUrl": "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-004",
+      "name": "Casa de Cultura",
+      "logoUrl": "https://ui-avatars.com/api/?name=CC&background=10b981&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 9299,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/casadecultura",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "premium",
+      "coverUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-005",
+      "name": "Movimento Sem Terra",
+      "logoUrl": "https://www.infoescola.com/wp-content/uploads/2007/08/MST.png",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 8699,
+      "isVerified": true,
+      "socialLinks": {
+        "instagram": "https://instagram.com/movimentosemterra",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "premium",
+      "coverUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "prod-006",
+      "name": "Fronteira Comedy",
+      "logoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRnByKpWayRNJZ8J5DFEvNMj8zOO9fRcXg0w&s",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 2436,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/fronteiracomedy",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-007",
+      "name": "Padel Club",
+      "logoUrl": "https://ui-avatars.com/api/?name=PC&background=14b8a6&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 3326,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/padelclub",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-008",
+      "name": "Samba na Fronteira",
+      "logoUrl": "https://i1.sndcdn.com/avatars-gUAK0VG3z5hkkGrx-hP3ixQ-t200x200.jpg",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 4429,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/sambanafronteira",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-009",
+      "name": "Escola de Artes",
+      "logoUrl": "https://ui-avatars.com/api/?name=EA&background=8b5cf6&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 3462,
+      "isVerified": true,
+      "socialLinks": {
+        "instagram": "https://instagram.com/escoladeartes",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    },
+    {
+      "id": "prod-0010",
+      "name": "Clube de Carros",
+      "logoUrl": "https://ui-avatars.com/api/?name=CC&background=64748b&color=fff&bold=true",
+      "bio": "Produtora oficial de eventos.",
+      "followersCount": 6416,
+      "isVerified": false,
+      "socialLinks": {
+        "instagram": "https://instagram.com/clubedecarros",
+        "whatsapp": "https://wa.me/5551999999999"
+      },
+      "tier": "standard"
+    }
+  ]
+}

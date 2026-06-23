@@ -1,0 +1,27 @@
+{
+    "mockCategories": [
+        { "name": "Sertanejo", "emoji": "🤠", "color": "#f59e0b" },
+        { "name": "Rock", "emoji": "🎸", "color": "#10b981" },
+        { "name": "Eletrônica", "emoji": "🎧", "color": "#3b82f6" },
+        { "name": "Teatro", "emoji": "🎭", "color": "#ec4899" },
+        { "name": "Esportes", "emoji": "🚴", "color": "#06b6d4" },
+        { "name": "Vinhos", "emoji": "🍷", "color": "#8b5cf6" }
+    ],
+    "allCategoriesForGrid": [
+        { "name": "Circuito Skol Beats", "image": "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?w=400&h=300&fit=crop", "isBranded": true },
+        { "name": "Sertanejo", "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=300&fit=crop" },
+        { "name": "Rock", "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=400&h=300&fit=crop" },
+        { "name": "Eletrônica", "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=300&fit=crop" },
+        { "name": "Teatro", "image": "https://images.unsplash.com/photo-1507676184212-d0330a15183c?w=400&h=300&fit=crop" },
+        { "name": "Esportes", "image": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=400&h=300&fit=crop" },
+        { "name": "Vinhos", "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&h=300&fit=crop" },
+        { "name": "Heineken Village", "image": "https://images.unsplash.com/photo-1575037614876-c3853d40f81e?w=400&h=300&fit=crop", "isBranded": true },
+        { "name": "Gastronomia", "image": "https://images.unsplash.com/photo-1414235077428-33898869228e?w=400&h=300&fit=crop" },
+        { "name": "Ação Social", "image": "https://images.unsplash.com/photo-1593113580532-601e3b092a95?w=400&h=300&fit=crop" },
+        { "name": "Stand-up Comedy", "image": "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=400&h=300&fit=crop" },
+        { "name": "Retrô Anos 80", "image": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=400&h=300&fit=crop" },
+        { "name": "Esportes Radicais", "image": "https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?w=400&h=300&fit=crop" },
+        { "name": "Cultura Local", "image": "https://images.unsplash.com/photo-1533222481259-ce20eda1e20b?w=400&h=300&fit=crop" },
+        { "name": "Festivais", "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop" }
+    ]
+}

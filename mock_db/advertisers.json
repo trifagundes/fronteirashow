@@ -1,0 +1,4 @@
+[
+    { "id": 1, "name": "Jão Delivery", "sector": "Bebidas", "status": "active", "email": "contato@jao.com", "logo": "https://jao.delivery/assets/jao-logo-0OeKhf67.png" },
+    { "id": 2, "name": "Ingresso Rápido", "sector": "Ingressos", "status": "active", "email": "vendas@ingresso.com", "logo": "https://ui-avatars.com/api/?name=IR&background=ec4899&color=fff&bold=true" }
+]

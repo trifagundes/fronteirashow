@@ -1,0 +1,75 @@
+[
+    {
+      "id": "campanha_bebidas",
+      "status": "active",
+      "zone": "native_feed",
+      "advertiser": "Jão Delivery",
+      "logo": "https://jao.delivery/assets/jao-logo-0OeKhf67.png",
+      "image": "https://njmhoajwmigjbirzjuox.supabase.co/storage/v1/render/image/public/blog-media/7ee8b291-e3f6-42be-93c4-ddb3826dd690/1781274749704-c48st6.png?width=900&quality=55&resize=contain",
+      "title": "O seu Esquenta Garantido!",
+      "description": "Combo Gin + Energético com 20% OFF para quem for nas festas de hoje. Entregamos gelado em 15 minutos!",
+      "cta": "Pedir agora"
+    },
+    {
+      "id": "campanha_funeraria",
+      "status": "active",
+      "zone": "native_feed",
+      "advertiser": "",
+      "logo": "",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkWRKaAB_z1ch3L-pWQ8L-mPHnJwYLB9kHYJXiqVFON-UPT18LsmjMNgEwhi72A6PHdg3rWamgRJeJBtnYOombBYxFJWlBxxP7Veq1fgIGgLsWAHt_LTqp1A7VfbxwjUMQH7GnzeQf0uAN0QFoBYY6j2Qg85RXGIeVjjJ6RAo18LHVovzTNWW-HPEuvcI/s1280/725616329_27262940473364593_8866066679993551776_n.jpg",
+      "title": "",
+      "description": "",
+      "cta": "Manda vir"
+    },
+    {
+      "id": "campanha_ingresso",
+      "status": "active",
+      "zone": "native_feed",
+      "advertiser": "Ingresso Rápido",
+      "logo": "https://ui-avatars.com/api/?name=IR&background=ec4899&color=fff&bold=true",
+      "image": "https://picsum.photos/seed/ad_ticket/600/300",
+      "title": "Evite Filas!",
+      "description": "Compre o seu ingresso antecipado pelo nosso app e garanta a entrada VIP em todos os eventos parceiros.",
+      "cta": "Comprar VIP"
+    },
+    {
+      "id": "service_taxi",
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.99app.com&size=128",
+      "title": "99 Táxi",
+      "description": "Volte em segurança",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    },
+    {
+      "id": "service_hotel",
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.ibis.com&size=128",
+      "title": "Hotel Ibis",
+      "description": "Desconto no pernoite",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    },
+    {
+      "id": "service_barber",
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.gillette.com&size=128",
+      "title": "Gillette Barber",
+      "description": "Corte de última hora",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    },
+    {
+      "id": "service_pizza",
+      "status": "active",
+      "zone": "utility",
+      "format": "utility",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.dominos.com.br&size=128",
+      "title": "Domino's Pizza",
+      "description": "Bateu a fome pós festa",
+      "bgClass": "bg-white border border-slate-200 dark:border-slate-700/50"
+    }
+]

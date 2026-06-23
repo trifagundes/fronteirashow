@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
+    <title>Eventos Fronteira | Modo Catálogo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: { 50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7', 900: '#0c4a6e' },
+                        surface: { light: '#ffffff', dark: '#1e293b' },
+                        background: { light: '#f8fafc', dark: '#0f172a' }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+                        'shimmer': 'shimmer 3s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        shimmer: { '0%': { transform: 'translateX(-150%) skewX(-15deg)' }, '100%': { transform: 'translateX(300%) skewX(-15deg)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300 min-h-screen pb-20">
+    
+    <!-- ============================================== -->
+    <!-- VIEW: INÍCIO (Catálogo) -->
+    <!-- ============================================== -->
+    <div id="view-home" class="spa-view w-full transition-opacity duration-300">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-4 flex justify-between items-center transition-colors duration-300">
+        <div>
+            <h1 class="text-xl font-bold text-red-600 dark:text-red-500 tracking-tight">
+                FRONTEIRA<span class="font-light text-slate-800 dark:text-slate-200">PLUS</span>
+            </h1>
+            <p class="text-[10px] uppercase tracking-widest text-slate-500">O que assistir hoje</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="text-[10px] bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full flex items-center gap-1 font-bold hover:bg-slate-300 transition-colors">
+                <i class="ph-bold ph-list"></i> Voltar ao Feed
+            </a>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <i class="ph ph-moon text-xl dark:hidden"></i>
+                <i class="ph ph-sun text-xl hidden dark:block"></i>
+            </button>
+        </div>
+        </header>
+
+        <!-- Main Content (Sem padding top para o Hero Banner encostar lá em cima) -->
+        <main class="pb-4 overflow-hidden">
+            <!-- Container do Hero Banner -->
+        <div id="hero-banner-container"></div>
+        
+        <!-- Container das Prateleiras -->
+        <div id="netflix-container" class="flex flex-col gap-8">
+            <!-- Loading Skeletons -->
+            <div class="px-4">
+                <div class="h-4 w-32 bg-slate-200 dark:bg-slate-800 rounded mb-3 animate-pulse"></div>
+                <div class="flex gap-3 overflow-hidden">
+                    <div class="w-32 h-48 bg-slate-200 dark:bg-slate-800 rounded-lg shrink-0 animate-pulse"></div>
+                    <div class="w-32 h-48 bg-slate-200 dark:bg-slate-800 rounded-lg shrink-0 animate-pulse"></div>
+                    <div class="w-32 h-48 bg-slate-200 dark:bg-slate-800 rounded-lg shrink-0 animate-pulse"></div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: BUSCA (Explorar) -->
+    <!-- ============================================== -->
+    <div id="view-search" class="spa-view w-full hidden transition-opacity duration-300">
+        <header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark px-4 py-4 transition-colors duration-300 shadow-sm border-b border-slate-200 dark:border-slate-800/50">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Buscar</h1>
+            </div>
+            
+            <!-- Search Input -->
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="ph-bold ph-magnifying-glass text-slate-400 text-lg"></i>
+                </div>
+                <input id="main-search-input" type="text" placeholder="Festas, shows, categorias..." class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl pl-10 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all placeholder-slate-400 font-medium shadow-sm">
+            </div>
+
+            <!-- Barra de Filtros Rápidos (Sempre Visível) -->
+            <div class="w-full overflow-x-auto hide-scrollbar mt-4 pb-1">
+                <div class="flex items-center gap-2 w-max">
+                    <button data-filter="nearest" class="search-filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                        <i class="ph-bold ph-calendar-blank"></i> Próximos
+                    </button>
+                    <button data-filter="free" class="search-filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                        <i class="ph-bold ph-ticket"></i> Grátis
+                    </button>
+                    <button data-filter="promo" class="search-filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                        <i class="ph-bold ph-gift"></i> Benefícios
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="pb-4 overflow-hidden">
+            <!-- Conteúdo Padrão (Discover) -->
+            <div id="explore-content">
+                <!-- Buscas em Alta -->
+                <div class="pt-6 pb-2">
+                    <h2 class="px-4 text-base font-bold text-slate-800 dark:text-slate-200 tracking-tight flex items-center gap-2 mb-3">
+                        <i class="ph-fill ph-trend-up text-primary-500"></i> Em Alta
+                    </h2>
+                    <div class="w-full overflow-x-auto hide-scrollbar px-4 pb-2">
+                        <div id="trending-container" class="flex items-center gap-2 w-max">
+                            <!-- Renderizado via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="px-4 pt-4 pb-2 text-base font-bold text-slate-800 dark:text-slate-200 tracking-tight flex items-center gap-2">
+                    <i class="ph-fill ph-squares-four text-primary-500"></i> Explorar Categorias
+                </h2>
+                <div id="explore-grid-container"></div>
+            </div>
+
+            <!-- Resultados da Busca In-Place (Inicialmente Oculto) -->
+            <div id="inline-search-content" class="hidden">
+                <div id="inline-section-header-wrapper" class="hidden px-4 pb-2 pt-4">
+                    <div class="flex items-center gap-2">
+                        <i class="ph-fill ph-funnel text-primary-500"></i>
+                        <h2 id="inline-section-header" class="text-base font-bold text-slate-800 dark:text-slate-200 tracking-tight"></h2>
+                    </div>
+                    <p class="text-[10px] text-slate-500 mt-0.5">Todos os eventos desta seção</p>
+                </div>
+                <h2 id="inline-results-label" class="px-4 pb-2 pt-4 text-base font-bold text-slate-800 dark:text-slate-200 tracking-tight">Resultados</h2>
+                <div id="inline-search-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3 px-4"></div>
+                <div id="inline-no-results" class="hidden flex flex-col items-center justify-center py-12 text-slate-500 dark:text-slate-400">
+                    <i class="ph-bold ph-magnifying-glass text-4xl mb-2 opacity-50"></i>
+                    <p class="text-sm font-medium">Nenhum evento encontrado.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: RESULTADOS DE BUSCA -->
+    <!-- ============================================== -->
+    <div id="view-results" class="spa-view w-full hidden transition-opacity duration-300 min-h-screen">
+        <header class="sticky top-0 z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md px-4 py-4 transition-colors duration-300 shadow-sm border-b border-slate-200 dark:border-slate-800/50 flex items-center gap-3">
+            <button id="btn-back-results" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-200/50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-200 hover:bg-slate-300/50 dark:hover:bg-slate-700/50 transition-colors">
+                <i class="ph-bold ph-arrow-left text-xl"></i>
+            </button>
+            <h1 id="results-title" class="text-lg font-black text-slate-900 dark:text-white tracking-tight truncate flex-1 drop-shadow-sm">Resultados</h1>
+        </header>
+
+        <main class="pb-24">
+            <!-- Barra de Subfiltros (Rolável) -->
+            <div class="w-full overflow-x-auto hide-scrollbar sticky top-[73px] z-40 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800/50 px-4 py-3 mb-4 shadow-sm">
+                <div class="flex items-center gap-2 w-max">
+                    <button data-filter="nearest" class="search-filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                        <i class="ph-bold ph-calendar-blank"></i> Próximos
+                    </button>
+                    <button data-filter="free" class="search-filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                        <i class="ph-bold ph-ticket"></i> Grátis
+                    </button>
+                    <button data-filter="promo" class="search-filter-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                        <i class="ph-bold ph-gift"></i> Benefícios
+                    </button>
+                </div>
+            </div>
+
+            <div id="results-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3 px-4">
+                <!-- Resultados renderizados via JS -->
+            </div>
+            
+            <div id="no-results-msg" class="hidden flex-col items-center justify-center py-20 text-center px-6">
+                <i class="ph-fill ph-magnifying-glass text-6xl text-slate-300 dark:text-slate-700 mb-4"></i>
+                <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">Nenhum evento encontrado</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Tente buscar por outras palavras ou navegar pelas categorias.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- VIEW: MINHA LISTA (FAVORITOS) -->
+    <div id="view-favorites" class="spa-view hidden pt-safe mt-14 opacity-0 transition-opacity duration-300">
+        <header class="fixed top-0 w-full z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-4 pt-safe">
+            <h1 class="text-xl font-black tracking-tight text-slate-800 dark:text-white flex items-center gap-2">
+                <i class="ph-fill ph-heart text-red-500"></i> Minha Lista
+            </h1>
+        </header>
+        
+        <main class="pb-24">
+            <!-- Sliding Tabs: Eventos / Produtores -->
+            <div class="px-4 pt-4 pb-2 sticky top-[68px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+                <div class="flex bg-slate-100 dark:bg-slate-800 rounded-xl p-1 relative">
+                    <!-- Fundo animado da aba selecionada -->
+                    <div id="favorites-tab-indicator" class="absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] bg-white dark:bg-slate-700 rounded-lg shadow-sm transition-all duration-300"></div>
+                    
+                    <button class="js-favorites-tab flex-1 py-2 text-sm font-bold text-slate-900 dark:text-white relative z-10 transition-colors" data-tab="events">
+                        Eventos
+                    </button>
+                    <button class="js-favorites-tab flex-1 py-2 text-sm font-bold text-slate-500 dark:text-slate-400 relative z-10 transition-colors" data-tab="producers">
+                        Produtores
+                    </button>
+                </div>
+            </div>
+
+            <!-- Controles de Busca e Filtro de Eventos (Ocultos se vazio ou se na aba produtores) -->
+            <div id="favorites-controls" class="hidden flex-col gap-3 px-4 py-2 sticky top-[132px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800/50 mb-4 shadow-sm transition-opacity">
+                <div class="relative w-full">
+                    <i class="ph-bold ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="favorites-search-input" placeholder="Buscar nos eventos salvos..." class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-xl pl-9 pr-4 py-2.5 text-sm font-medium text-slate-800 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary-500 outline-none transition-shadow shadow-inner">
+                </div>
+                <div class="w-full overflow-x-auto hide-scrollbar">
+                    <div id="favorites-category-pills" class="flex items-center gap-2 w-max pb-1">
+                        <!-- Pílulas dinâmicas renderizadas via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTAINER: EVENTOS SALVOS -->
+            <div id="favorites-events-container">
+                <h3 id="favorites-events-title" class="hidden text-sm font-black tracking-tight text-slate-800 dark:text-white px-4 pt-6 pb-1">Eventos que curti</h3>
+                <div id="favorites-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3 px-4 pt-2">
+                    <!-- Favoritos renderizados via JS -->
+                </div>
+                
+                <div id="favorites-empty-msg" class="hidden flex-col items-center justify-center py-10 text-center px-6 w-full">
+                    <i class="ph-fill ph-heart-break text-6xl text-slate-300 dark:text-slate-700 mb-4"></i>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">Nenhum evento salvo</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Navegue pelos eventos e toque no coração para salvar os que você mais gostar aqui.</p>
+                    <button class="nav-btn bg-primary-500 hover:bg-primary-600 text-white dark:text-slate-900 px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-primary-500/30 transition-colors" data-nav-target="home">
+                        Explorar Eventos
+                    </button>
+                </div>
+            </div>
+
+            <!-- CONTAINER: PRODUTORES SEGUIDOS -->
+            <div id="favorites-producers-container" class="hidden">
+                <h3 id="favorites-producers-title" class="hidden text-sm font-black tracking-tight text-slate-800 dark:text-white px-4 pt-6 pb-2">Produtores que sigo</h3>
+                <div id="favorites-producers-grid" class="grid grid-cols-3 gap-y-8 gap-x-2 sm:grid-cols-4 md:grid-cols-5 px-4 pt-4">
+                    <!-- Produtores renderizados via JS -->
+                </div>
+                
+                <div id="favorites-producers-empty-msg" class="hidden flex-col items-center justify-center py-10 text-center px-6 w-full">
+                    <i class="ph-fill ph-users-three text-6xl text-slate-300 dark:text-slate-700 mb-4"></i>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">Você não segue ninguém</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Acompanhe seus produtores favoritos para ver seus eventos com prioridade na sua Home.</p>
+                </div>
+            </div>
+            
+            <!-- Sugestões de Eventos (Renderizadas via JS) -->
+            <div id="favorites-events-suggestions" class="w-full mt-10 px-4 text-left hidden">
+                <h4 class="text-sm font-black tracking-tight text-slate-800 dark:text-white mb-3">Sugestões de eventos para você</h4>
+                <div id="favorites-events-suggestions-grid" class="grid grid-cols-2 gap-3 w-full"></div>
+            </div>
+
+            <!-- Sugestões de Produtores (Renderizadas via JS) -->
+            <div id="favorites-producers-suggestions" class="w-full mt-10 px-4 text-left hidden">
+                <h4 class="text-sm font-black tracking-tight text-slate-800 dark:text-white mb-6">Produtores para acompanhar</h4>
+                <div id="favorites-producers-suggestions-grid" class="grid grid-cols-4 gap-y-8 gap-x-2 sm:grid-cols-5 md:grid-cols-6 w-full"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- VIEW: PERFIL E INGRESSOS -->
+    <div id="view-profile" class="spa-view hidden pt-safe pb-24 opacity-0 transition-opacity duration-300 min-h-screen">
+        <!-- Renderizado dinamicamente via JS -->
+    </div>
+
+    <!-- Tarja Fixa Inteligente (Smart Banner) -->
+    <div id="smart-sticky-ad" class="fixed bottom-20 left-4 right-4 z-40 transition-all duration-500 translate-y-0 opacity-100">
+        <div class="bg-slate-900 dark:bg-slate-100 rounded-2xl shadow-xl shadow-black/20 dark:shadow-white/5 p-3 pr-10 flex items-center justify-between border border-slate-700/50 dark:border-slate-300 cursor-pointer group relative">
+            
+            <!-- Botão Fechar -->
+            <button id="close-sticky-ad" class="absolute top-1 right-1 w-6 h-6 flex items-center justify-center rounded-full text-slate-400 hover:text-white dark:hover:text-slate-900 hover:bg-white/10 dark:hover:bg-black/10 transition-colors z-50">
+                <i class="ph-bold ph-x text-[10px]"></i>
+            </button>
+
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 overflow-hidden border border-slate-200">
+                    <img id="sticky-ad-logo" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.uber.com&size=128" alt="Ad" class="w-full h-full object-cover p-1">
+                </div>
+                <div>
+                    <h4 id="sticky-ad-title" class="text-white dark:text-slate-900 text-sm font-bold leading-none mb-1">Táxi Rápido Fronteira</h4>
+                    <span id="sticky-ad-desc" class="text-slate-400 dark:text-slate-500 text-[10px] block leading-tight">Volte em segurança para casa.</span>
+                </div>
+            </div>
+            <button id="sticky-ad-cta" class="bg-green-500 hover:bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:scale-105 shrink-0 shadow-md">
+                <i class="ph-bold ph-whatsapp-logo"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: PERFIL DO PRODUTOR -->
+    <!-- ============================================== -->
+    <div id="view-producer" class="spa-view w-full min-h-screen hidden bg-background-light dark:bg-background-dark pb-24 transition-opacity duration-300">
+        <!-- Header Fixo (Scrolla sobre o conteúdo) -->
+        <div class="fixed top-0 left-0 w-full z-30 flex items-center px-4 py-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-transparent transition-colors shadow-sm" id="producer-header">
+            <button id="btn-back-producer" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors mr-3">
+                <i class="ph-bold ph-arrow-left text-xl"></i>
+            </button>
+            <div class="flex-1 min-w-0 opacity-0 transition-opacity duration-300" id="producer-header-title">
+                <h2 class="text-base font-bold truncate text-slate-900 dark:text-white js-producer-name">Nome do Produtor</h2>
+            </div>
+            <button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ml-2 js-share-btn">
+                <i class="ph-bold ph-share-network text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Capa e Foto -->
+        <div class="relative w-full h-48 bg-slate-200 dark:bg-slate-800">
+            <img src="" id="producer-cover" class="w-full h-full object-cover opacity-80" alt="Capa">
+            <div class="absolute inset-0 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent"></div>
+        </div>
+
+        <div class="px-4 -mt-12 relative z-10 flex flex-col items-center text-center mb-6">
+            <img src="" id="producer-logo" class="w-24 h-24 rounded-full border-4 border-background-light dark:border-background-dark object-cover shadow-md bg-white mb-3" alt="Logo">
+            
+            <h1 class="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-1 mb-1">
+                <span class="js-producer-name">Nome do Produtor</span>
+                <i class="ph-fill ph-seal-check text-blue-500 text-lg hidden" id="producer-verified"></i>
+            </h1>
+            
+            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4" id="producer-followers">
+                <strong>1.2K</strong> seguidores
+            </p>
+
+            <p class="text-sm text-slate-700 dark:text-slate-300 max-w-sm mb-5 line-clamp-3" id="producer-bio">
+                Biografia do produtor entra aqui.
+            </p>
+
+            <div class="flex items-center gap-3 w-full justify-center">
+                <button id="producer-main-follow-btn" class="js-follow-btn flex-1 max-w-[200px] py-3 rounded-xl font-bold text-sm transition-colors border bg-primary-500 border-primary-500 text-white hover:bg-primary-600 shadow-md shadow-primary-500/20" data-producer-id="">
+                    Seguir
+                </button>
+                <a href="#" id="producer-whatsapp" target="_blank" class="w-12 h-12 rounded-xl flex items-center justify-center bg-green-50 text-green-600 border border-green-200 hover:bg-green-100 transition-colors hidden shrink-0">
+                    <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                </a>
+                <a href="#" id="producer-instagram" target="_blank" class="w-12 h-12 rounded-xl flex items-center justify-center bg-pink-50 text-pink-600 border border-pink-200 hover:bg-pink-100 transition-colors hidden shrink-0">
+                    <i class="ph-fill ph-instagram-logo text-2xl"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Grade de Eventos -->
+        <div class="px-4">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Eventos em Destaque</h3>
+            <div id="producer-events-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <!-- Renderizado via JS -->
+            </div>
+            <div id="producer-no-events" class="hidden text-center py-10 text-slate-500">
+                <p>Nenhum evento ativo no momento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: DIRETÓRIO DE PRODUTORES -->
+    <!-- ============================================== -->
+    <div id="view-producers-directory" class="spa-view w-full min-h-screen hidden bg-background-light dark:bg-background-dark pb-24 transition-opacity duration-300">
+        <!-- Header Fixo -->
+        <div class="sticky top-0 left-0 w-full z-30 flex items-center px-4 py-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors shadow-sm">
+            <button id="btn-back-directory" class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors mr-3">
+                <i class="ph-bold ph-arrow-left text-xl"></i>
+            </button>
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Produtores Oficiais</h2>
+        </div>
+
+        <div class="px-0 py-6">
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 px-4">Conheça e siga as melhores produtoras da fronteira para não perder nenhum evento.</p>
+            
+            <!-- Barra de Busca de Produtores -->
+            <div class="px-4 mb-6">
+                <div class="relative">
+                    <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                    <input type="text" id="producer-search-input" placeholder="Buscar por produtora..." class="w-full bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 rounded-2xl py-3 pl-11 pr-4 focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-inner">
+                </div>
+            </div>
+
+            <div id="producer-no-results" class="hidden px-4 text-center py-10">
+                <i class="ph ph-mask-sad text-4xl text-slate-300 dark:text-slate-600 mb-3 block"></i>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Nenhuma produtora encontrada.</p>
+            </div>
+
+            <div id="producers-directory-content">
+                <!-- Seção VIP (Carrossel Horizontal Grande) -->
+                <div id="producers-directory-vip-wrapper" class="mb-10 w-full overflow-hidden">
+                    <div id="producers-directory-vip">
+                        <!-- Injetado via JS -->
+                    </div>
+                </div>
+
+                <!-- Seção Premium (Grade Média) -->
+                <div id="producers-directory-premium-wrapper" class="px-4 mb-10">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Destaques</h3>
+                    <div id="producers-directory-premium" class="grid grid-cols-2 gap-4">
+                        <!-- Injetado via JS -->
+                    </div>
+                </div>
+
+                <!-- Seção Standard (Grade Pequena / Avatares) -->
+                <div id="producers-directory-standard-wrapper" class="px-4">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Todos os Produtores</h3>
+                    <div id="producers-directory-standard" class="grid grid-cols-3 gap-y-8 gap-x-2 sm:grid-cols-4 md:grid-cols-5">
+                        <!-- Injetado via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão Flutuante (FAB) do Táxi - Oculto por padrão -->
+    <button id="fab-taxi" class="fixed bottom-20 right-4 z-40 w-12 h-12 bg-slate-900 dark:bg-slate-100 rounded-full shadow-xl shadow-black/30 border border-slate-700/50 dark:border-slate-300 flex items-center justify-center translate-y-20 opacity-0 pointer-events-none transition-all duration-500">
+        <img id="fab-taxi-logo" src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.uber.com&size=128" alt="Ad" class="w-6 h-6 object-cover bg-white rounded-full p-0.5">
+    </button>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-between items-center z-50 transition-colors duration-300 pb-safe">
+        <button data-nav-target="home" class="nav-btn flex flex-col items-center text-primary-500 transition-colors w-16">
+            <i class="ph-fill ph-house text-2xl mb-1 nav-icon"></i>
+            <span class="text-[10px] font-medium">Início</span>
+        </button>
+        <button data-nav-target="search" class="nav-btn flex flex-col items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors w-16">
+            <i class="ph ph-magnifying-glass text-2xl mb-1 nav-icon"></i>
+            <span class="text-[10px] font-medium">Buscar</span>
+        </button>
+        <button data-nav-target="favorites" class="nav-btn flex flex-col items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors relative w-16">
+            <div class="relative">
+                <i class="ph ph-heart text-2xl mb-1 nav-icon"></i>
+                <span id="favorites-badge" class="absolute -top-1 -right-1.5 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full min-w-[16px] text-center shadow-sm hidden">0</span>
+            </div>
+            <span class="text-[10px] font-medium">Minha Lista</span>
+        </button>
+        <button data-nav-target="profile" class="nav-btn flex flex-col items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors w-16">
+            <i class="ph ph-user text-2xl mb-1 nav-icon"></i>
+            <span class="text-[10px] font-medium">Perfil</span>
+        </button>
+    </nav>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed bottom-[80px] left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none w-[90%] max-w-sm"></div>
+
+    <!-- App Scripts (ES6 Modules) -->
+    <script type="module" src="./js/netflix.js"></script>
+
+    <!-- Section View (push de tela cheia, desliza da direita) -->
+    <div id="section-view-modal" class="section-view-panel fixed inset-0 z-[55] bg-background-light dark:bg-background-dark translate-x-full flex flex-col overflow-hidden will-change-transform">
+        <!-- Header -->
+        <header class="sticky top-0 z-10 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-4 flex items-center gap-3 transition-colors duration-300">
+            <button id="close-section-view-btn" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">
+                <i class="ph-bold ph-arrow-left text-xl"></i>
+            </button>
+            <div class="flex-1">
+                <h2 id="section-view-title" class="text-lg font-bold text-slate-800 dark:text-white tracking-tight line-clamp-1">Seção</h2>
+                <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest font-medium">Todos os eventos desta seção</p>
+            </div>
+        </header>
+        <!-- Content -->
+        <main id="section-view-main" class="section-view-content flex-1 overflow-y-auto hide-scrollbar p-4 pb-24">
+            <div id="section-view-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3"></div>
+            
+            <div id="section-view-no-results" class="hidden flex flex-col items-center justify-center py-16 text-center">
+                <div class="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 text-slate-400 dark:text-slate-500">
+                    <i class="ph ph-magnifying-glass text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">Nenhum evento encontrado</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 px-6">Esta seção ainda não possui eventos.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Event Details Modal Overlay -->
+    <div id="event-modal-overlay" class="fixed inset-0 z-[59] bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    
+    <!-- Event Details Bottom Sheet (SPA View) -->
+    <section id="event-details-modal" class="fixed bottom-0 left-0 w-full h-[92vh] z-[60] bg-background-light dark:bg-background-dark rounded-t-3xl translate-y-full transition-transform duration-300 flex flex-col overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.3)]"></section>
+</body>
+</html>

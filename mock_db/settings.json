@@ -1,0 +1,24 @@
+{
+    "minFavoritesToSearch": 5,
+    "favoritesAdId": "campanha_funeraria",
+    "favoritesAdPosition": 0,
+    "userProfile": {
+      "name": "Matheus Silva",
+      "email": "matheus.silva@email.com",
+      "avatarUrl": "https://ui-avatars.com/api/?name=Matheus+Silva&background=0D8ABC&color=fff&size=128",
+      "tickets": [
+        { "orderId": "A1B2C3D4", "quantity": 2, "eventId": 1 },
+        { "orderId": "E5F6G7H8", "quantity": 1, "eventId": 4 }
+      ]
+    },
+    "trendingSearches": [
+      "Festa Universitária", "Stand-up Comedy", "Open Bar", "Eletrônica", "Samba e Pagode", "Gratuitos"
+    ],
+    "stickyAd": {
+      "advertiser": "Táxi Rápido Fronteira",
+      "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.uber.com&size=128",
+      "description": "Volte em segurança para casa.",
+      "ctaIcon": "ph-whatsapp-logo",
+      "ctaColor": "bg-green-500 hover:bg-green-600"
+    }
+}
