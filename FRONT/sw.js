@@ -1,22 +1,44 @@
-const CACHE_NAME = 'fronteiraplus-cache-v1';
+const CACHE_NAME = 'fronteiraplus-cache-v2';
+
+// Apenas recursos locais (sem restrição de CORS)
 const URLS_TO_CACHE = [
-    'netflix.html',
+    './',
+    'index.html',
     'css/style.css',
     'js/netflix.js',
+    'manifest.json',
+];
+
+// URLs de CDNs externas — cacheadas com mode: 'no-cors' (opaque responses)
+const EXTERNAL_URLS_TO_CACHE = [
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
     'https://unpkg.com/@phosphor-icons/web',
-    'https://cdn.tailwindcss.com'
+    'https://cdn.tailwindcss.com',
 ];
 
 // Evento de Instalação: abre o cache e adiciona os arquivos principais
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
-                console.log('Cache aberto');
-                return cache.addAll(URLS_TO_CACHE);
-            })
+        caches.open(CACHE_NAME).then(cache => {
+            console.log('Cache aberto');
+
+            // Cacheia arquivos locais normalmente
+            const localCache = cache.addAll(URLS_TO_CACHE);
+
+            // Cacheia CDNs externas com no-cors (não bloqueia a instalação se falhar)
+            const externalCache = Promise.allSettled(
+                EXTERNAL_URLS_TO_CACHE.map(url =>
+                    fetch(new Request(url, { mode: 'no-cors' }))
+                        .then(res => cache.put(url, res))
+                        .catch(err => console.warn('[SW] Não foi possível cachear:', url, err))
+                )
+            );
+
+            return Promise.all([localCache, externalCache]);
+        })
     );
+    // Força ativação imediata sem esperar abas fecharem
+    self.skipWaiting();
 });
 
 // Evento de Fetch: serve os arquivos do cache se estiverem disponíveis

@@ -2,22 +2,36 @@
     "name": "FronteiraPlus Catálogo",
     "short_name": "Fronteira+",
     "description": "O que assistir hoje no FronteiraPlus.",
-    "start_url": "netflix.html",
+    "start_url": "./index.html",
+    "scope": "./",
     "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#0f172a",
-    "theme_color": "#1e293b",
+    "theme_color": "#0f172a",
     "icons": [
         {
             "src": "images/icons/launchericon-192x192.png",
             "sizes": "192x192",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
+        },
+        {
+            "src": "images/icons/launchericon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
             "src": "images/icons/launchericon-512x512.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "any"
+        },
+        {
+            "src": "images/icons/launchericon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ]
 }
