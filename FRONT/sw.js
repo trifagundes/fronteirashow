@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fronteiraplus-cache-20260623-1709';
+const CACHE_NAME = 'fronteiraplus-cache-20260623-1717';
 
 // Apenas recursos locais (sem restrição de CORS)
 const URLS_TO_CACHE = [

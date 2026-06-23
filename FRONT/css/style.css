@@ -10,11 +10,17 @@
     --sar: env(safe-area-inset-right);
 }
 
-/* Body ocupa toda a tela, incluindo áreas de notificação e botões */
-html,
+/* O elemento <html> é quem preenche a safe-area-inset-top (atrás da câmera/notch).
+   Sem background definido aqui, essa área fica preta mesmo com viewport-fit=cover. */
+html {
+    background-color: #f8fafc; /* modo claro — igual ao bg-background-light */
+    min-height: 100dvh;
+}
+html.dark {
+    background-color: #0f172a; /* modo escuro — igual ao bg-background-dark e theme-color */
+}
 body {
-    /* Garante que o background cubra a área da status bar */
-    background-attachment: fixed;
+    min-height: 100dvh;
 }
 
 /* ============================================
