@@ -7,10 +7,14 @@ import { createNetflixRow, createNativeAdCard, createUtilityCarousel, createHero
 import { openEventModal, closeEventModal } from './ui.js';
 import { initThemeToggle } from './theme.js';
 import { toggleFavorite, getFavorites, toggleFollowProducer, isFollowingProducer } from './storage.js';
+import { initPWAInstallBanner } from './pwa-install.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Inicializa controles de UI (Theme)
     initThemeToggle();
+
+    // Inicializa o banner de instalação PWA customizado
+    initPWAInstallBanner();
 
     // Atualiza o contador do badge de favoritos na navegação inicial
     updateFavoritesBadge();
