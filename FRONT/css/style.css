@@ -15,12 +15,16 @@
 html {
     background-color: #f8fafc; /* modo claro — igual ao bg-background-light */
     min-height: 100dvh;
+    overflow-x: hidden; /* impede rolagem horizontal */
+    max-width: 100%;
 }
 html.dark {
     background-color: #0f172a; /* modo escuro — igual ao bg-background-dark e theme-color */
 }
 body {
     min-height: 100dvh;
+    overflow-x: hidden; /* impede rolagem horizontal */
+    max-width: 100%;
 }
 
 /* ============================================
