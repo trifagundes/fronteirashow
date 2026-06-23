@@ -11,7 +11,8 @@
 }
 
 /* Body ocupa toda a tela, incluindo áreas de notificação e botões */
-html, body {
+html,
+body {
     /* Garante que o background cubra a área da status bar */
     background-attachment: fixed;
 }
@@ -19,11 +20,14 @@ html, body {
 /* ============================================
    UTILITÁRIOS DE SAFE AREA (TAILWIND-LIKE)
    ============================================ */
+
 @layer utilities {
+
     /* Hide scrollbar for Chrome, Safari and Opera */
     .hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
+
     /* Hide scrollbar for IE, Edge and Firefox */
     .hide-scrollbar {
         -ms-overflow-style: none;
@@ -34,9 +38,11 @@ html, body {
     .pt-safe {
         padding-top: env(safe-area-inset-top);
     }
+
     .pt-safe-offset-4 {
         padding-top: calc(env(safe-area-inset-top) + 1rem);
     }
+
     .pt-safe-offset-header {
         padding-top: calc(env(safe-area-inset-top) + 4rem);
     }
@@ -45,6 +51,7 @@ html, body {
     .pb-safe {
         padding-bottom: env(safe-area-inset-bottom);
     }
+
     .pb-safe-offset-nav {
         padding-bottom: calc(env(safe-area-inset-bottom) + 5rem);
     }
@@ -53,6 +60,7 @@ html, body {
     .pl-safe {
         padding-left: env(safe-area-inset-left);
     }
+
     .pr-safe {
         padding-right: env(safe-area-inset-right);
     }
@@ -61,6 +69,7 @@ html, body {
     .mt-safe {
         margin-top: env(safe-area-inset-top);
     }
+
     .mb-safe {
         margin-bottom: env(safe-area-inset-bottom);
     }
@@ -69,6 +78,7 @@ html, body {
     .top-safe {
         top: env(safe-area-inset-top);
     }
+
     .bottom-safe {
         bottom: env(safe-area-inset-bottom);
     }
@@ -127,6 +137,7 @@ div.fixed.top-0 {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+
 .dark .glass {
     background: rgba(30, 41, 59, 0.5);
 }
@@ -137,9 +148,15 @@ div.fixed.top-0 {
 
 /* Ken Burns (Zoom Lento Contínuo) para o Hero Carousel */
 @keyframes ken-burns {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.15); }
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
 }
+
 .animate-ken-burns {
     animation: ken-burns 20s alternate infinite ease-in-out;
 }
@@ -148,15 +165,18 @@ div.fixed.top-0 {
 .section-view-panel {
     transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
 }
+
 .section-view-panel.is-closing {
     transition: transform 0.28s cubic-bezier(0.4, 0, 1, 1);
 }
+
 .section-view-content {
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
     transition: opacity 0.28s ease-out, transform 0.28s ease-out, visibility 0s linear 0.28s;
 }
+
 .section-view-content.is-visible {
     opacity: 1;
     visibility: visible;
