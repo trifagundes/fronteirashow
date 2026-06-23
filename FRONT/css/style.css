@@ -1,4 +1,24 @@
-/* Custom Base Styles */
+/* ============================================
+   SAFE AREA — Edge-to-Edge / Full Screen PWA
+   ============================================ */
+
+/* Variáveis de safe area para uso nos cálculos */
+:root {
+    --sat: env(safe-area-inset-top);
+    --sab: env(safe-area-inset-bottom);
+    --sal: env(safe-area-inset-left);
+    --sar: env(safe-area-inset-right);
+}
+
+/* Body ocupa toda a tela, incluindo áreas de notificação e botões */
+html, body {
+    /* Garante que o background cubra a área da status bar */
+    background-attachment: fixed;
+}
+
+/* ============================================
+   UTILITÁRIOS DE SAFE AREA (TAILWIND-LIKE)
+   ============================================ */
 @layer utilities {
     /* Hide scrollbar for Chrome, Safari and Opera */
     .hide-scrollbar::-webkit-scrollbar {
@@ -6,17 +26,100 @@
     }
     /* Hide scrollbar for IE, Edge and Firefox */
     .hide-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
-    /* Safe Area for iOS bottom nav */
+    /* Padding Safe Area — Top (status bar / notch) */
+    .pt-safe {
+        padding-top: env(safe-area-inset-top);
+    }
+    .pt-safe-offset-4 {
+        padding-top: calc(env(safe-area-inset-top) + 1rem);
+    }
+    .pt-safe-offset-header {
+        padding-top: calc(env(safe-area-inset-top) + 4rem);
+    }
+
+    /* Padding Safe Area — Bottom (home indicator / nav bar Android) */
     .pb-safe {
         padding-bottom: env(safe-area-inset-bottom);
     }
+    .pb-safe-offset-nav {
+        padding-bottom: calc(env(safe-area-inset-bottom) + 5rem);
+    }
+
+    /* Padding Safe Area — Left / Right (landscape notch) */
+    .pl-safe {
+        padding-left: env(safe-area-inset-left);
+    }
+    .pr-safe {
+        padding-right: env(safe-area-inset-right);
+    }
+
+    /* Margin Safe Area */
+    .mt-safe {
+        margin-top: env(safe-area-inset-top);
+    }
+    .mb-safe {
+        margin-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* Posicionamento: topo respeitando a safe area */
+    .top-safe {
+        top: env(safe-area-inset-top);
+    }
+    .bottom-safe {
+        bottom: env(safe-area-inset-bottom);
+    }
+
+    /* Altura mínima de tela cheia (útil em full screen mode) */
+    .min-h-screen-safe {
+        min-height: 100dvh;
+    }
 }
 
-/* Glassmorphism utility if needed explicitly */
+/* ============================================
+   ELEMENTOS FIXOS — compensação de safe area
+   ============================================ */
+
+/* Bottom Navigation: empurra acima da barra de navegação do sistema */
+nav.fixed.bottom-0 {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
+}
+
+/* Headers fixos/sticky: empurra abaixo da status bar */
+header.sticky.top-0,
+header.fixed.top-0,
+div.fixed.top-0 {
+    padding-top: calc(env(safe-area-inset-top) + 1rem);
+}
+
+/* Toast container: acima do nav + safe area */
+#toast-container {
+    bottom: calc(env(safe-area-inset-bottom) + 5rem);
+}
+
+/* Smart Sticky Ad e FAB: acima do nav + safe area */
+#smart-sticky-ad,
+#fab-taxi {
+    bottom: calc(env(safe-area-inset-bottom) + 5rem);
+}
+
+/* Event Details Modal (bottom sheet): respeita home indicator */
+#event-details-modal {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Section View Modal (full screen push): aplica safe areas */
+#section-view-modal {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
 .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -26,7 +129,11 @@
     background: rgba(30, 41, 59, 0.5);
 }
 
-/* Animação Ken Burns (Zoom Lento Contínuo) para o Hero Carousel */
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+
+/* Ken Burns (Zoom Lento Contínuo) para o Hero Carousel */
 @keyframes ken-burns {
     0% { transform: scale(1); }
     100% { transform: scale(1.15); }
